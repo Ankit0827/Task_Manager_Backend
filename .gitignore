@@ -7,10 +7,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# Build output
 dist
 dist-ssr
 *.local
+
+# Environment files
+.env
+.env.*
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +29,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Optional: ignore lock files (uncomment if needed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*~
