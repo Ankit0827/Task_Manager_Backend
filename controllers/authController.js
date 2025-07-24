@@ -17,22 +17,17 @@ const generateToken=(UserID)=>{
 // @access Public
 const registerUser = async (req, res) => {
     try {
-        console.log("Incoming request body:", req.body); // ✅ Add this
-
         const { name, email, password, profileImageUrl, adminInviteToken } = req.body;
-
         // Check if user already exists
         const userExists = await User.findOne({ email });
         if (userExists) {
             return res.status(400).json({ message: "User already exists" });
         }
-
         // Determine role
         let role = "member";
         if (adminInviteToken && adminInviteToken === process.env.ADMIN_INVITE_TOKEN) {
             role = "admin";
         }
-
         // Hash password
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(password, salt);
@@ -56,7 +51,7 @@ const registerUser = async (req, res) => {
             token: generateToken(user._id)
         });
     } catch (error) {
-        console.error("Registration error:", error); // ✅ Add this
+        console.error("Registration error:", error); 
         res.status(500).json({ message: "Server error", error: error.message });
     }
 };
