@@ -2,7 +2,6 @@ const User =require("../models/User")
 require('dotenv').config();
 const bcrypt=require("bcryptjs")
 const jwt=require("jsonwebtoken")
-const { default: mongoose } = require("mongoose")
 
 
 //  Generate JWT Token

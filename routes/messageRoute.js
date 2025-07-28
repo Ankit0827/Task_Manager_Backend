@@ -1,4 +1,4 @@
-const { getUserForSidebar, getMessages, sendMessages }=require("../controllers/messageController");
+const { getUserForSidebar, getMessages, sendMessages ,getNewMessageCount}=require("../controllers/messageController");
 const { protect }= require("../middlewares/authMiddleware");
 
 const express=require("express");
@@ -8,6 +8,7 @@ const router=express.Router();
 
 router.get("/users",protect,getUserForSidebar);
 router.get("/:id",protect,getMessages);
+router.get("/unseen-count/:userId",protect,getNewMessageCount);
 router.post("/send/:id",protect,sendMessages);
 
 
