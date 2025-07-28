@@ -26,7 +26,7 @@ const getMessages = async (req, res) => {
         { senderId: currentUserId, receiverId: userToChatId },
         { senderId: userToChatId, receiverId: currentUserId },
       ],
-    });
+    }).sort({ createdAt: 1 }); // Sort by createdAt in ascending order (oldest first)
 
     const decryptedMessages = messages.map((msg) => ({
       ...msg.toObject(),
